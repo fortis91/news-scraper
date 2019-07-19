@@ -42,11 +42,13 @@ router.get("/scrape", function (req, res) {
     //     res.send("Scrape Complete");
     // });
     axios.get("https://lifehacker.com").then(function (response) {
-        // console.log(response.data);
+        console.log(response.data);
         let $ = cheerio.load(response.data);
-        let title = $(this).text();
-        console.log(title);
+        $("article h2").each(function (i, element) {
 
+            let title = $(this).text();
+            console.log(title);
+        });
 
         res.send("Scape Completed");
     })
