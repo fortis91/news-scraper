@@ -47,7 +47,7 @@ router.get("/scrape", function (req, res) {
         $("article h2").each(function (i, element) {
 
             let title = $(this).text();
-            console.log(title);
+            console.log(this);
         });
 
         res.send("Scape Completed");

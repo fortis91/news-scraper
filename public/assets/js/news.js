@@ -1,6 +1,7 @@
 $(document).on("click", "#scrape", function () {
     console.log('scrape');
     $.get("/scrape").then(function (data) {
+        console.log('scrape');
         location.reload();
     });
 });
