@@ -8,29 +8,48 @@ var db = require("../models");
 
 mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
+router.get("/", function (req, res) {
+    db.Article.find({}).sort({ _id: -1 })
+        .then(dbArticles => {
+            res.render("index", { dbArticles });
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
 // A GET route for scraping the echoJS website
 router.get("/scrape", function (req, res) {
-    axios.get("http://www.echojs.com/").then(function (response) {
-        var $ = cheerio.load(response.data);
-        $("article h2").each(function (i, element) {
-            var result = {};
-            result.title = $(this)
-                .children("a")
-                .text();
-            result.link = $(this)
-                .children("a")
-                .attr("href");
-            db.Article.create(result)
-                .then(function (dbArticle) {
-                    console.log(dbArticle);
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-        });
+    // axios.get("http://www.echojs.com/").then(function (response) {
+    //     var $ = cheerio.load(response.data);
+    //     $("article h2").each(function (i, element) {
+    //         var result = {};
+    //         result.title = $(this)
+    //             .children("a")
+    //             .text();
+    //         result.link = $(this)
+    //             .children("a")
+    //             .attr("href");
+    //         db.Article.create(result)
+    //             .then(function (dbArticle) {
+    //                 console.log(dbArticle);
+    //             })
+    //             .catch(function (err) {
+    //                 console.log(err);
+    //             });
+    //     });
 
-        res.send("Scrape Complete");
-    });
+    //     res.send("Scrape Complete");
+    // });
+    axios.get("https://lifehacker.com").then(function (response) {
+        // console.log(response.data);
+        let $ = cheerio.load(response.data);
+        let title = $(this).text();
+        console.log(title);
+
+
+        res.send("Scape Completed");
+    })
 });
 
 // Route for getting all Articles from the db
