@@ -41,17 +41,57 @@ router.get("/scrape", function (req, res) {
 
     //     res.send("Scrape Complete");
     // });
-    axios.get("https://lifehacker.com").then(function (response) {
-        console.log(response.data);
-        let $ = cheerio.load(response.data);
-        $("article h2").each(function (i, element) {
+    // axios.get("https://lifehacker.com").then(function (response) {
+    //     // console.log(response.data);
+    //     let $ = cheerio.load(response.data);
+    //     $("article h2").each(function (i, element) {
 
-            let title = $(this).text();
-            console.log(this);
+    //         let title = $(this).text();
+    //         console.log(title);
+    //     });
+
+    //     res.send("Scape Completed");
+    // })
+    axios.get("https://www.washingtonpost.com/").then(function (response) {
+
+        var $ = cheerio.load(response.data);
+        var results = [];
+
+        $(".headline").each(function (i, element) {
+                        var result = {};
+
+            // console.log(element);
+            // var title = $(element).children().text();
+            // var link = $(element).find("a").attr("href");
+
+            // if (title && link) {
+
+            //     results.push({
+            //         title: title,
+            //         link: link
+            //     });
+            // }
+            
+            result.title = $(element).children("a").text().trim();
+            // url = $(element).children("a").attr("href");
+            result.link = $(element).find("a").attr("href");
+
+            result.summary = $(element).siblings(".blurb").text().trim();
+            if (result.title && result.link) {
+                db.Article.create(result)
+                    .then(function (dbArticle) {
+                        console.log(dbArticle);
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }
         });
 
-        res.send("Scape Completed");
-    })
+        // Log the results once you've looped through each of the elements found with cheerio
+        // console.log(results);
+        // db.scrapedData.insert(results);
+    });
 });
 
 // Route for getting all Articles from the db

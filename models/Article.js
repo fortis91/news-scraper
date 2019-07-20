@@ -11,6 +11,9 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  summary: {
+    type: String,
+  },
   note: {
     type: Schema.Types.ObjectId,
     ref: "Note"
