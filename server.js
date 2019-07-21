@@ -17,8 +17,6 @@ app.set("view engine", "handlebars");
 var routes = require("./routes/articles.js");
 app.use(routes);
 
-console.log(process.env.PORT);
-console.log(process.env.MONGO_URL);
 
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

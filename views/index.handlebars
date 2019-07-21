@@ -41,12 +41,12 @@
         <h1>News Scraper</h1>
         {{!-- <p>New York Times</p> --}}
     </div>
-        {{!-- <button type="button" class="btn btn-primary" id="scrape">Scrape!</button> --}}
+    {{!-- <button type="button" class="btn btn-primary" id="scrape">Scrape!</button> --}}
 
 </div>
 <div class="container-fluid article-container">
     <button type="button" class="btn btn-primary btn-sm" id="scrape">Scrape</button>
-    
+
     {{#each dbArticles}}
     <div class="row">
         <div class="col-12">
@@ -57,6 +57,7 @@
                         <a href={{link}} target="_blank" class="card-title">{{title}}</a>
                         <br>
                         <p>{{summary}}</p>
+                        <a href="/comments/{{_id}}" class="btn btn-primary btn-sm">Comments</a>
                     </div>
                 </div>
             </div>

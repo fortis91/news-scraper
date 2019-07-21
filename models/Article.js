@@ -9,10 +9,14 @@ var ArticleSchema = new Schema({
   },
   link: {
     type: String,
-    required: true
+    required: true,
+    unique: true
+    // createIndex: true
+    // dropDups: true
   },
   summary: {
     type: String,
+    required: true
   },
   note: {
     type: Schema.Types.ObjectId,
