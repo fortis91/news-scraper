@@ -54,6 +54,7 @@ router.get("/scrape", function (req, res) {
 });
 
 router.get("/comments/:id", function (req, res) {
+    console.log('get comment');
     db.Article.findOne({ _id: req.params.id })
         .populate("notes")
         .then(function (dbArticle) {
@@ -65,6 +66,7 @@ router.get("/comments/:id", function (req, res) {
 });
 
 router.post("/comments/:id", function (req, res) {
+    console.log('add comment');
     db.Note.create(req.body)
         .then(function (dbNote) {
             return db.Article.findOneAndUpdate(
