@@ -1,5 +1,6 @@
 body {
-    background-color: blue;
+    /* background-color: blue; */
+    background-color: #456990;
 }
 
 .btn {
@@ -13,5 +14,15 @@ body {
 
 .jumbotron {
     /* padding: 4rem 2rem; */
-    padding: 5px
+    padding: 2px;
+    /* background-color: #456990; */
+    /* color: #456990 */
+}
+.jumbotron.comments{
+    /* padding: 4rem 2rem; */
+    padding: 0px
+}
+
+.jumbotron-fluid {
+    background-color: #456990;
 }
