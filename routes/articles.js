@@ -14,7 +14,6 @@ router.get("/", function (req, res) {
     db.Article.find({}).sort({ _id: -1 })
         // .populate("notes")
         .then(dbArticles => {
-            console.log(dbArticles);
             res.render("index", { dbArticles });
         })
         .catch(err => {
