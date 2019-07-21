@@ -40,6 +40,8 @@ eb App to scrape news from The Washington Post. Users can read and comment on ar
 The following tools/frameworks are use in this project.
 * [Node](https://nodejs.org/en/)
 * [mongodb](https://www.mongodb.com/)
+* [axios](https://www.npmjs.com/package/axios)
+* [cheerio](https://www.npmjs.com/package/cheerio)
 
 
 
