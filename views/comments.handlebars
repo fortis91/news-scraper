@@ -22,9 +22,9 @@
             {{#each dbArticle.notes}}
             <div class="card mt-1 mb-2" style="_width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{title}}</h5>
+                    <class="card-title">{{title}}
                     <p class="card-text">{{body}}</p>
-                    <button type="button" class="btn btn-primary js-deleteComment" data-id={{_id}}>Delete</button>
+                    <button class="btn btn-primary deleteComment btn-sm" data-id={{_id}}>Delete</button>
                 </div>
             </div>
             {{/each}}
@@ -32,15 +32,15 @@
         <div class="col-6">
             <form class="mb-3">
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">Name</label>
                     <input type="text" class="form-control" id="title">
                 </div>
                 <div class="form-group">
                     <label for="body">Comment</label>
                     <input type="textarea" class="form-control" id="body">
                 </div>
-                <button type="submit" class="btn btn-primary" id="submitButton">Add Comment</button>
-                <a href="/" class="btn btn-primary">Back to Scraping</button></a>
+                <button class="btn btn-primary btn-sm" id="submitButton">Add Comment</button>
+                <a href="/" class="btn btn-primary btn-sm">Articles</button></a>
             </form>
         </div>
 

@@ -9,9 +9,11 @@ body {
 
 .card-title {
     font-size: 25px;
-    color: blue;
+    color: #456990;
 }
-
+.card-text {
+    font-size: 15px;
+}
 .jumbotron {
     /* padding: 4rem 2rem; */
     padding: 2px;

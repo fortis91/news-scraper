@@ -22,7 +22,7 @@ $(document).on("click", "#submitButton", function (event) {
 });
 
 
-$(document).on("click", ".js-deleteComment", function (event) {
+$(document).on("click", ".deleteComment", function (event) {
     event.preventDefault();
     let commentID = $(this).attr("data-id");
     $.ajax({
