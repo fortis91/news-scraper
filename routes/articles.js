@@ -3,10 +3,14 @@ var router = express.Router();
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
+require("dotenv").config();
 
 var db = require("../models");
 
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 router.get("/", function (req, res) {
     db.Article.find({}).sort({ _id: -1 })
@@ -78,7 +82,7 @@ router.get("/scrape", function (req, res) {
 
             result.summary = $(element).siblings(".blurb").text().trim();
             if (result.title && result.link) {
-                db.Article.create(result)
+                db.Article.create(result, { unordered: true })
                     .then(function (dbArticle) {
                         console.log(dbArticle);
                     })

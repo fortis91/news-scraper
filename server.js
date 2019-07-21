@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const exphbs = require("express-handlebars");
+require("dotenv").config();
 
 const PORT = process.env.PORT || 8080;
 
@@ -15,6 +16,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 var routes = require("./routes/articles.js");
 app.use(routes);
+
+console.log(process.env.PORT);
+console.log(process.env.MONGO_URL);
 
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
