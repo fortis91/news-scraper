@@ -7,10 +7,10 @@
     <img src="logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-  <h3 align="center">BAmazon</h3>
+  <h3 align="center">News Scraper</h3>
 
   <p align="center">
-An Amazon-like storefront with the MySQL skills you learned this unit. The app will take in orders from customers and deplete stock from the store's inventory. As a bonus task, you can program your app to track product sales across your store's departments and then provide a summary of the highest-grossing departments in the store.  </p>
+Web App to scrape news from The Washington Post. Users can read and comment on articles. </p>
 </p>
 
 
@@ -34,7 +34,7 @@ An Amazon-like storefront with the MySQL skills you learned this unit. The app w
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-An Amazon-like storefront with the MySQL skills you learned this unit. The app will take in orders from customers and deplete stock from the store's inventory. As a bonus task, you can program your app to track product sales across your store's departments and then provide a summary of the highest-grossing departments in the store.
+eb App to scrape news from The Washington Post. Users can read and comment on articles.
 
 ### Built With
 The following tools/frameworks are use in this project.
