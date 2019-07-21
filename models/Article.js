@@ -5,12 +5,13 @@ var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
   title: {
     type: String,
+    index: true,
     required: true
   },
   link: {
     type: String,
     required: true,
-    unique: true
+    index: true,
     // createIndex: true
     // dropDups: true
   },

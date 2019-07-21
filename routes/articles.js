@@ -31,8 +31,13 @@ router.get("/scrape", function (req, res) {
             result.title = $(element).children("a").text().trim();
             // url = $(element).children("a").attr("href");
             result.link = $(element).find("a").attr("href");
-
-            result.summary = $(element).siblings(".blurb").text().trim();
+            summary = $(element).siblings(".blurb").text().trim();
+            if (summary) {
+                result.summary = $(element).siblings(".blurb").text().trim();
+            }
+            else {
+                result.summary = 'No summary available';
+            }
             if (result.title && result.link) {
                 results.push(result);
             }

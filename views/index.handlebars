@@ -1,51 +1,15 @@
-{{!-- <div class="container">
-    <div class="text-center mb-3">
-        <h1>News Scraper</h1>
-    </div>
-    {{#each dbArticles}}
-    <div class="row">
-        <div class="col-12">
-            <div class="card mt-1 mb-2">
-                <div class="card-horizontal">
-                    <div class="card-body">
-                        <a href={{link}} target="_blank" class="card-title">{{title}}</a>
-                        <br>
-                        <p>{{summary}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{/each}}
-</div> --}}
-
-
-
-{{!-- <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">News Scraper</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/saved">Saved Articles</a></li>
-            <li><a class="btn btn-danger scrape-new">Scrape New Articles</a></li>
-        </ul>
-    </div>
-</nav> --}}
-
 <div class="jumbotron text-center">
-    <div class="overlay">
-    </div>
+    {{!-- <div class="overlay">
+    </div> --}}
     <div class="caption">
         <h1>News Scraper</h1>
-        {{!-- <p>New York Times</p> --}}
+        <p>Scaping The Washington Post</p>
     </div>
-    {{!-- <button type="button" class="btn btn-primary" id="scrape">Scrape!</button> --}}
+    <button type="button" class="btn btn-primary fload-sm-right" id="scrape">Scrape</button>
 
 </div>
-<div class="container-fluid article-container">
-    <button type="button" class="btn btn-primary btn-sm" id="scrape">Scrape</button>
+<div class="container">
+        {{!-- <button type="button" class="btn btn-primary float-sm-right" id="scrape">Scrape!</button> --}}
 
     {{#each dbArticles}}
     <div class="row">
@@ -53,11 +17,12 @@
             <div class="card mt-1 mb-2">
                 <div class="card-horizontal">
                     <div class="card-body">
-                        {{!-- {{title}} --}}
-                        <a href={{link}} target="_blank" class="card-title">{{title}}</a>
+                        {{!-- <a href={{link}} target="_blank" class="card-title">{{title}}</a> --}}
+                        <p class="card-title">{{title}}</p>
                         <br>
                         <p>{{summary}}</p>
-                        <a href="/comments/{{_id}}" class="btn btn-primary btn-sm">Comments</a>
+                        <a href={{link}} target="_blank" class="btn btn-primary float-sm-right btn-sm">Read</a>
+                        <a href="/comments/{{_id}}" class="btn btn-primary float-sm-right btn-sm">Comments</a>
                     </div>
                 </div>
             </div>
@@ -65,12 +30,6 @@
     </div>
     {{/each}}
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p>News Scraper</p>
-    </div>
-</footer>
 <script type="text/javascript" src="/assets/js/news.js"></script>
 
 {{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
