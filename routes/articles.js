@@ -12,7 +12,9 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 router.get("/", function (req, res) {
     db.Article.find({}).sort({ _id: -1 })
+        // .populate("notes")
         .then(dbArticles => {
+            console.log(dbArticles);
             res.render("index", { dbArticles });
         })
         .catch(err => {
@@ -96,6 +98,17 @@ router.delete("/comments/:articleid/:commentid", function (req, res) {
 });
 
 
+router.delete("/comments/:articleid/:commentid", function (req, res) {
+    db.Note.deleteOne({ _id: req.params.commentid }).then(dbNote => {
+        db.Article.findOneAndUpdate(
+            { _id: req.params.articleid },
+            { $pull: { notes: req.params.commentid } },
+            { useFindAndModify: false }
+        ).then(dbArticle => {
+            res.end();
+        });
+    });
+});
 
 
 
